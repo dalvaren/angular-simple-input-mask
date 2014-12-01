@@ -30,8 +30,13 @@ angular.module('angularMask', [])
           }
           text.value = newValue;
 
-          scope.$apply(function () {
-            scope[model] = text.value;
+          scope.$apply(function() {
+            if(model.indexOf('.') !== -1){
+              var models = model.split('.');
+              scope[models[0]][models[1]] = newValue;
+            }else{
+              scope[model] = text.value;
+            }
           });
         }
 

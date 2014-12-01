@@ -12,7 +12,3 @@ Directive will look for attribute angular-mask on input
 ```HTML
 <input name="test" maxlengh="19" angular-mask="0000-0000-0000-0000" />
 ```
-
-
-## Demo
-Do you want to see this directive in action? Visit http://wender.com.br/angular/angular-simple-mask.html

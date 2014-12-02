@@ -30,11 +30,16 @@ angular.module('angularMask', [])
           }
           text.value = newValue;
 
-          if(text.value.length >= format.length){
+          if(text.value.length >= format.length && newValue !== ''){
             scope.$apply(function() {
               if(model.indexOf('.') !== -1){
                 var models = model.split('.');
-                scope[models[0]][models[1]] = newValue;
+                switch (models.length){
+                  case 2: scope[models[0]][models[1]] = newValue; break;
+                  case 3: scope[models[0]][models[1]][models[2]] = newValue; break;
+                  case 4: scope[models[0]][models[1]][models[2]][models[3]] = newValue; break;
+                  case 5: scope[models[0]][models[1]][models[2]][models[3]][models[4]] = newValue; break;
+                }
               }else{
                 scope[model] = text.value;
               }
